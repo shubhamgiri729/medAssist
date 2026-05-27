@@ -184,3 +184,51 @@ cd smart-medication-assistant
 This project is developed for educational and research purposes.
 
 ---
+
+## 📱 Application Screenshots
+
+Here is a visual overview of the **medAssist** application interfaces for both Doctors and Patients.
+
+### 🩺 Doctor Portal
+<table>
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/shubhamgiri729/medAssist/blob/main/DoctorDashboard.jpeg?raw=true" alt="Doctor Dashboard" width="100%"/>
+      <br><p align="center"><b>Fig 1: Doctor Dashboard</b></p>
+    </td>
+    <td width="50%">
+      <img src="https://github.com/shubhamgiri729/medAssist/blob/main/Assigned_Prescription.jpeg?raw=true" alt="Prescription Management" width="100%"/>
+      <br><p align="center"><b>Fig 2: Prescription Management</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/shubhamgiri729/medAssist/blob/main/Add_Prescription.jpeg?raw=true" alt="Add Prescription Details" width="100%"/>
+      <br><p align="center"><b>Fig 3: Add Prescription Details</b></p>
+    </td>
+    <td width="50%">
+      <img src="https://github.com/shubhamgiri729/medAssist/blob/main/Daily_Report.jpeg?raw=true" alt="Daily Report" width="100%"/>
+      <br><p align="center"><b>Fig 4: Daily Report</b></p>
+    </td>
+  </tr>
+</table>
+
+### 👤 Patient Portal & Utility
+<table>
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/shubhamgiri729/medAssist/blob/main/Patient_Dashboard.jpeg?raw=true" alt="Patient Dashboard" width="100%"/>
+      <br><p align="center"><b>Fig 5: Patient Dashboard</b></p>
+    </td>
+    <td width="50%">
+      <img src="https://github.com/shubhamgiri729/medAssist/blob/main/Notification_Reminder.jpeg?raw=true" alt="Notification Reminder" width="100%"/>
+      <br><p align="center"><b>Fig 6: Notification Reminder</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" colspan="2" align="center">
+      <img src="https://github.com/shubhamgiri729/medAssist/blob/main/Expire_Prescription.jpeg?raw=true" alt="Expired Prescriptions" width="48%"/>
+      <br><p align="center"><b>Fig 7: Expired Prescriptions View</b></p>
+    </td>
+  </tr>
+</table>
