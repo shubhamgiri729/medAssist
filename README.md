@@ -138,6 +138,12 @@ cd smart-medication-assistant
 /app/
 ```
 
+5. Deploy the included security rules so role-based access is actually enforced, not just assumed:
+
+```bash
+firebase deploy --only firestore:rules
+```
+
 ---
 
 ### 3️⃣ Build and Run
@@ -149,6 +155,26 @@ cd smart-medication-assistant
    - Physical Android Device
 
 > Recommended Android API Level: 26 or higher
+
+---
+
+## 🔐 Security & Roles
+
+Doctor accounts are **not self-service** — the signup screen only ever creates patient
+accounts. This is enforced in two places, not just the UI:
+
+- `AuthViewModel.signup()` always writes `role: "patient"` to Firestore.
+- `firestore.rules` independently rejects any write, from any client, that tries to create a
+  user document with a role other than `"patient"`, and rejects any attempt by a user to
+  change their own `role` after account creation.
+
+**To create a doctor account:** an admin opens the Firebase console, finds the target user's
+document under `users/{uid}`, and manually changes `role` from `"patient"` to `"doctor"`.
+There's no in-app flow for this by design — a role with access to other users' health data
+shouldn't be something a user can grant themselves.
+
+Reading the full patient roster (what the doctor dashboard's list query does) is only
+permitted for accounts whose own Firestore document already has `role: "doctor"`.
 
 ---
 
