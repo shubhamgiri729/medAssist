@@ -20,7 +20,6 @@ fun SignupScreen(
     var phone by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var selectedRole by remember { mutableStateOf("patient") }
 
     val authState by viewModel.authState.collectAsState()
 
@@ -84,26 +83,10 @@ fun SignupScreen(
                     modifier = Modifier.fillMaxWidth()
                 )
 
-                Text("Select Role")
-
-                Row(horizontalArrangement = Arrangement.SpaceEvenly) {
-
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        RadioButton(
-                            selected = selectedRole == "patient",
-                            onClick = { selectedRole = "patient" }
-                        )
-                        Text("Patient")
-                    }
-
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        RadioButton(
-                            selected = selectedRole == "doctor",
-                            onClick = { selectedRole = "doctor" }
-                        )
-                        Text("Doctor")
-                    }
-                }
+                // NOTE: there is deliberately no role picker here. Every self-service signup
+                // is a patient account (enforced by firestore.rules, not just this screen).
+                // Doctor accounts are provisioned by an admin directly in the Firebase console
+                // — see README.md for why and how.
 
                 Button(
                     onClick = {
@@ -111,8 +94,7 @@ fun SignupScreen(
                             name = name,
                             phone = phone,
                             email = email,
-                            password = password,
-                            role = selectedRole
+                            password = password
                         )
                     },
                     modifier = Modifier.fillMaxWidth()

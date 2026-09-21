@@ -43,12 +43,16 @@ class AuthViewModel : ViewModel() {
     }
 
     // SIGNUP
+    // Every self-service signup creates a "patient" account. There is no client-supplied role
+    // here on purpose — doctor accounts are provisioned by an admin directly in Firestore (see
+    // README.md), and firestore.rules independently rejects any create/update that tries to
+    // set role to anything other than "patient" or change it later. Even if this function were
+    // changed to accept a role param again, the rules are what actually decide what's allowed.
     fun signup(
         name: String,
         phone: String,
         email: String,
-        password: String,
-        role: String
+        password: String
     ) {
 
         if (name.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty()) {
@@ -72,7 +76,7 @@ class AuthViewModel : ViewModel() {
                     "name" to name,
                     "phone" to phone,
                     "email" to email,
-                    "role" to role,
+                    "role" to "patient",
                     "createdAt" to System.currentTimeMillis()
                 )
 
